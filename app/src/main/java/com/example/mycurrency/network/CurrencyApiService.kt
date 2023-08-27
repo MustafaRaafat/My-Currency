@@ -1,14 +1,12 @@
 package com.example.mycurrency.network
 
+import com.example.mycurrency.viewmodels.LatestDataResult
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface CurrencyApiService {
-    @GET("convert")
-    fun getConvert(
+    @GET("latest")
+    suspend fun getLatest(
         @Query("access_key") access_key: String,
-        @Query("from") from: String,
-        @Query("to") to: String,
-        @Query("amount") amount: Int
-    )
+    ): LatestDataResult
 }
