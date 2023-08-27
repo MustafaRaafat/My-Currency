@@ -1,21 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ConvertFragment">
+        tools:context=".ui.ConvertFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+        <Spinner
+            android:id="@+id/spinner_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/edit_from"
+            app:layout_constraintEnd_toStartOf="@id/switch_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/spinner_to"
+            app:layout_constraintStart_toEndOf="@id/spinner_from"
+            app:layout_constraintTop_toTopOf="@id/spinner_from" />
+
+        <Spinner
+            android:id="@+id/spinner_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/switch_btn"
+            app:layout_constraintTop_toTopOf="@id/spinner_from" />
+
+
+        <EditText
+            android:id="@+id/edit_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="from"
+            android:inputType="numberDecimal"
+            android:minWidth="100dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/details_btn"
+            app:layout_constraintEnd_toEndOf="@id/spinner_from"
+            app:layout_constraintStart_toStartOf="@id/spinner_from"
+            app:layout_constraintTop_toBottomOf="@id/spinner_from" />
+
+        <EditText
+            android:id="@+id/edit_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="to"
+            android:inputType="numberDecimal"
+            android:minWidth="100dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/spinner_to"
+            app:layout_constraintStart_toStartOf="@id/spinner_to"
+            app:layout_constraintTop_toTopOf="@id/edit_from" />
+
+        <Button
+            android:id="@+id/details_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_from" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

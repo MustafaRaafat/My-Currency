@@ -16,9 +16,9 @@ class CurrencyViewModel @Inject constructor(
     private val repository: CurrencyRepository
 ) : ViewModel() {
     private val _convert = MutableStateFlow<LatestDataResult>(LatestDataResult.Loading())
-    val convert: StateFlow<LatestDataResult> = _convert
+    val latestData: StateFlow<LatestDataResult> = _convert
 
-    fun loadConvert() {
+    fun loadLatest() {
         viewModelScope.launch {
             repository.getLatestData()
                 .catch { ex ->

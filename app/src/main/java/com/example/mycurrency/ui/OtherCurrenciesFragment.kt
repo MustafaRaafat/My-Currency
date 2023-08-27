@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import com.example.mycurrency.R
 import com.example.mycurrency.databinding.FragmentOtherCurrenciesBinding
+import com.example.mycurrency.viewmodels.CurrencyViewModel
 
 class OtherCurrenciesFragment : Fragment() {
 
     lateinit var binding: FragmentOtherCurrenciesBinding
+    private val viewModel: CurrencyViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +28,7 @@ class OtherCurrenciesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
 
 }
