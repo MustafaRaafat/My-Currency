@@ -15,7 +15,7 @@ import javax.inject.Inject
 class CurrencyViewModel @Inject constructor(
     private val repository: CurrencyRepository
 ) : ViewModel() {
-    private val _convert = MutableStateFlow<LatestDataResult>(LatestDataResult.Loading())
+    private val _convert = MutableStateFlow<LatestDataResult>(LatestDataResult.Success(null))
     val latestData: StateFlow<LatestDataResult> = _convert
 
     fun loadLatest() {
@@ -25,7 +25,7 @@ class CurrencyViewModel @Inject constructor(
                     _convert.value = LatestDataResult.Error(ex)
                 }
                 .collect { data ->
-                    _convert.value = data
+                    _convert.value = LatestDataResult.Success(data)
                 }
         }
     }
@@ -34,5 +34,4 @@ class CurrencyViewModel @Inject constructor(
 sealed class LatestDataResult {
     data class Success(val latestModel: LatestDataModel?) : LatestDataResult()
     data class Error(val ex: Throwable) : LatestDataResult()
-    class Loading() : LatestDataResult()
 }

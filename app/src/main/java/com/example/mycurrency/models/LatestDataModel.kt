@@ -7,5 +7,12 @@ data class LatestDataModel(
     var date: String,
     var rates: Rates
 ) {
-    data class Rates(var AED: Double)
+    data class Rates(
+        var USD: Double,
+        var EGP: Double,
+        var AUD: Double,
+        var CAD: Double,
+        var PLN: Double,
+        var MXN: Double
+    )
 }
